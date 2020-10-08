@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /*
@@ -54,6 +55,49 @@ public class Main {
         
         System.out.println(myFloats);
         System.out.println(myFloats2);
+        
+        boolean areEqual = ArrayIsEqualToOtherArray(myFloats, myFloats2);
+        
+        
+        Rectangle[] myRooms = new Rectangle[4];
+        myRooms[0] = new Rectangle(10,10);
+//        myRooms[1] = new Rectangle(9,12);
+//        myRooms[2] = new Rectangle(11,28);
+//        myRooms[3] = new Rectangle(9,10);
+//
+//        double totalArea = 0;
+//        for (Rectangle room : myRooms) {
+//            totalArea += room.getArea();
+//        }
+//        System.out.println(totalArea);
+
+        ArrayList<String> names = new ArrayList<String>();
+        names.add("John");
+        names.add("Bob");
+        names.add("Suzy");
+        
+        //names.remove(0);
+        names.add(2, "Test Person");
+        
+        System.out.println(names.toString());
+
+        
+        ArrayList<Rectangle> house = new ArrayList<Rectangle>();
+        house.add(new Rectangle(10,10));
+        house.add(new Rectangle(11,10));
+        house.add(new Rectangle(15,10));
+        house.add(new Rectangle(16,10));
+
+        System.out.println(house.size());
+        
+        double totalArea = 0;
+        for (Rectangle room : house) {
+            totalArea += room.getArea();
+        }
+        
+//        for (int i=0; i<house.size(); i++) {
+//            Rectangle rect = house.get(i);
+//        }
     }
 
     public static float[] CopyArray(float[] arrayToCopy) {
@@ -64,6 +108,22 @@ public class Main {
         }
 
         return output;
+    }
+    
+    public static boolean ArrayIsEqualToOtherArray(float[] array1, float[] array2) {
+        
+        if (array1.length != array2.length) {
+            return false;
+        }
+        
+        boolean arraysAreEqual = true;
+        for (int i=0; i<array1.length; i++) {
+            if (array1[i] != array2[i]) {
+                arraysAreEqual = false;
+            }
+        }
+        
+        return arraysAreEqual;
     }
 
     public static void PrintArray(int[] arrayToPrint) {
